@@ -1,9 +1,16 @@
-<input type="text" class="form-control" placeholder="Search...">
 <div class="row">
+    <div class="col-md-7">
+        <input type="text" class="form-control" placeholder="Search..." #inputField>
+    </div>
     <div class="col-md-5">
-        <app-search-results></app-search-results>
+        <button class="btn btn-primary" (click)="searchInput()" >Search</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5" *ngIf="resultList.length > 0">
+        <app-search-results *ngFor="let result of resultList" [result]="result" (resClicked)="displayDetails($event)"></app-search-results>
     </div>
     <div class="col-md-7">
-        <app-search-detail></app-search-detail>
+        <app-search-detail *ngIf="detailResult" [detail]="detailResult"></app-search-detail>
     </div>
 </div>

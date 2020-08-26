@@ -1,1 +1,24 @@
-<p>search-detail works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <img [src]="detail.image" alt="none" class="img-responsive" style="max-height: 200px;">
+        {{detail.firstname}} {{detail.lastname}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {{detail.gender.toUpperCase()}},Birthday: {{detail.birthday}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Contact: {{detail.phone}}, {{detail.email}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Website: {{detail.website}}
+    </div>
+</div>
+<div class="row">
+</div>
+

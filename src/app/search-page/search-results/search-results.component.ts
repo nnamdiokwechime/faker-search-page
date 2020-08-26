@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import axios from 'axios';
 
 @Component({
@@ -7,21 +7,17 @@ import axios from 'axios';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-  search: string; 
-  resultList = [];
+  @Input() result; 
+  @Output() resClicked = new EventEmitter<{}>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  async getData(){
-    try{
-      const res  = await axios('https://fakerapi.it/api/v1/persons?_quantity=1000');
-      this.resultList= res.data.data.filter(el=>el.firstname === ('Emily'));
-      console.log(this.resultList);
-    }catch(err){
-
-    };
+  resultClicked(){
+    this.resClicked.emit(this.result);
+    console.log(this.result);
   }
+  
 
 }
