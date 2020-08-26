@@ -1,0 +1,15 @@
+<p>search-results works!</p>
+<div class="">
+    <button class="btn btn-primary" (click)="getData()">Search</button>
+</div>
+
+<div>
+    <div *ngIf="resultList.length===0; else showResult">No results here! Search for something!</div>
+    <ng-template #showResult>
+        <app-search-result *ngFor="let res of resultList" [result]="res"></app-search-result>
+    </ng-template>
+</div>
+
+
+
+
